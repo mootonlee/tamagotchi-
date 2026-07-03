@@ -1,4 +1,4 @@
-#brief overview
+# Overview
 tamagotchi pet project: can pet, gets lonely, multiple emotions, can sleep, get hot/cold, etc. Inspired off the tamagotchi pets popular in early 2010's. 
 
 
