@@ -1,0 +1,57 @@
+import ssd1306
+from machine import ADC, Pin, I2C, TouchPad
+display = ssd1306.SSD1306_I2C(128, 64, i2c)
+import time
+petting = TouchPad(Pin(13))
+photocell = ADC(Pin(4))
+photocell.atten(ADC.ATTN_11DB)
+
+
+def clear():
+    display.fill(0)
+
+def neutral():
+    clear()
+    display.framebuf.rect(10, 5, 39, 21, 1)
+    display.framebuf.rect(79, 5, 39, 22, 1)
+    display.framebuf.line(40, 58, 90, 58, 1)
+    display.show()
+
+def smile():
+    clear()
+    display.framebuf.rect(10, 5, 39, 13, 1)
+    display.framebuf.rect(79, 5, 39, 13, 1)
+    display.framebuf.ellipse(110, 24, 12, 5, 1, False)
+    display.framebuf.ellipse(19, 24, 12, 5, 1, False)
+    display.framebuf.line(13, 27, 23, 20, 1)
+    display.framebuf.line(109, 22, 114, 29, 1)
+    display.framebuf.line(29, 23, 22, 28, 1)
+    display.framebuf.line(62, 49, 95, 45, 1)
+
+def sleep():
+    clear()
+    display.framebuf.rect(8, 46, 39, 2, 1)
+    display.framebuf.rect(77, 46, 39, 2, 1)
+    display.framebuf.rect(60, 57, 12, 4, 1)
+    display.text("Zz", 106, 1, 1)
+    display.show
+
+neutral()
+mood = "neutral"
+while True: 
+    light = photocell.read()
+    touch = petting.read()
+
+    if light < 600:
+        if mood != "sleep"
+        sleep()
+        mood = "sleep"
+    elif touch < 200:
+        if mood != "smile":
+            smile()
+            mood = "smile"
+    else:
+        if mood != "neutral":
+            neutral()
+            mood = "neutral"
+            
