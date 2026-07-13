@@ -1,0 +1,83 @@
+
+"first version tamagotchi friend"
+"more features for the smaller friend to come"
+
+
+import ssd1306
+"import ssd1306 from the library that contaisn it"
+
+from machine import ADC, Pin, I2C, TouchPad
+"import analog to digital compatibility, pins, 2 wire comm, and capacitive touch"
+display = ssd1306.SSD1306_I2C(128, 64, i2c)
+"display is ssd1306 from the ssd1306.i2c, 128 and 64 pixels size, through 12c."
+import time
+petting = TouchPad(Pin(13))
+"the capacitive wire that detects touch"
+photocell = ADC(Pin(4))
+"the photocell using adc on pin 4"
+photocell.atten(ADC.ATTN_11DB)
+"dont know what it means, just know to include it every time"
+
+
+
+
+def clear():
+    display.fill(0)
+
+def neutral():
+    clear()
+    display.framebuf.rect(10, 5, 39, 21, 1)
+    display.framebuf.rect(79, 5, 39, 22, 1)
+    display.framebuf.line(40, 58, 90, 58, 1)
+    display.show()
+
+def smile():
+    clear()
+    display.framebuf.rect(10, 5, 39, 13, 1)
+    display.framebuf.rect(79, 5, 39, 13, 1)
+    display.framebuf.ellipse(110, 24, 12, 5, 1, False)
+    display.framebuf.ellipse(19, 24, 12, 5, 1, False)
+    display.framebuf.line(13, 27, 23, 20, 1)
+    display.framebuf.line(109, 22, 114, 29, 1)
+    display.framebuf.line(29, 23, 22, 28, 1)
+    display.framebuf.line(62, 49, 95, 45, 1)
+
+def sleep():
+    clear()
+    display.framebuf.rect(8, 46, 39, 2, 1)
+    display.framebuf.rect(77, 46, 39, 2, 1)
+    display.framebuf.rect(60, 57, 12, 4, 1)
+    display.text("Zz", 106, 1, 1)
+    display.show
+"i actually made these facea and imported them myself without ai! credits lopaka."
+neutral()
+mood = "neutral"
+"make it neutral and set the internal setting to neutral"
+while True: 
+    light = photocell.read()
+    "light is what the photocell reads"
+    touch = petting.read()
+    "touch is the capacitance value from the toucpad"
+
+
+    if light < 600:
+        if mood != "sleep"
+        sleep()
+        mood = "sleep"
+        "if its dark make it sleep and set it internally to let it know its sleeping and not on anything else."
+
+    elif touch < 200:
+        if mood != "smile":
+            smile()
+            mood = "smile"
+    "touch drops voltage so anything less than 200 is probably a finger touch"
+    else:
+        if mood != "neutral":
+            neutral()
+            mood = "neutral"
+            "if it isnt any of that, its neutral"
+
+"PROJECTED UPDATE: MEETUP MODE"
+"both friends can enter a docking station which i will make myself and they can meet with eachother."
+
+            
