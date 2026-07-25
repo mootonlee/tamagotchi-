@@ -1,0 +1,128 @@
+"adding notes instead of making a seperate notes file because im actively learning python, since i main micropython."
+
+
+import tkinter as tk
+"import this whenever using a window thingy"
+
+window = tk.Tk()
+"variable for new window"
+window.title("Software vrs.1")
+"title at the top left that tells you the name of the window"
+window.geometry("380x320")
+"size of window"
+is_lonely = False
+"not lonelyly at start"
+petting = False
+"its not being pet at start"
+is_sleeping = False
+"it is also not sleeping at start."
+lonely_timer = None
+"no timer yet, reserve variable for it"
+selected_option = tk.IntVar(value=1)
+"variable for the number of the option you select. for me its 1-3 i think"
+
+main_frame = tk.Frame(window, bg="black")
+"main part of the frame, it has the buttons and stuff"
+main_frame.pack(fill="both", expand=True)
+"add this to make it so it fills both x and y when expanded and to let it expabd"
+
+canvas_frame = tk.Frame(main_frame, bg="black")
+"the canvas. it is where you draw faces there."
+canvas_frame.pack(side="left", padx=10, pady=10)
+"same thing, canvas is forced to stay on the left, pad X and pad Y are offset words."
+
+canvas = tk.Canvas(canvas_frame, width=360, height=260, bg="black", highlightthickness=0)
+"variable defining the canvas"
+canvas.pack()
+
+sidebar = tk.Frame(main_frame, bg="black")
+"sidebar is thr thing that has the buttons, with a black bg of course"
+sidebar.pack(side="right", fill="y", padx=10, pady=20)
+"pack it onto the right side of the main frame and can only expand further upwards, and create distance between the two."
+
+rb1 = tk.Radiobutton(sidebar, text="moody", variable=selected_option, value=1, bg="black", fg="white", selectcolor="black", activebackground="black", activeforeground="white")
+"pack it onto the sidebar, option one is a placeholder, set the selected option to val 1, make the bg black, text white,  "
+rb1.pack(anchor="w", pady=5)
+
+rb2 = tk.Radiobutton(sidebar, text="shy", variable=selected_option, value=2, bg="black", fg="white", selectcolor="black", activebackground="black", activeforeground="white")
+"same stuff"
+rb2.pack(anchor="w", pady=5)
+"all the buttons have anchor w because it means to push it to the west side so everything iss in order."
+rb3 = tk.Radiobutton(sidebar, text="neutral", variable=selected_option, value=3, bg="black", fg="white", selectcolor="black", activebackground="black", activeforeground="white")
+rb3.pack(anchor="w", pady=5)
+
+"all three of these share very similar logic, just different names"
+
+slider_label = tk.Label(sidebar, text="Brightness", bg="black", fg="white")
+slider_label.pack(anchor="w", pady=(15, 2))
+"the slider on the side with the buttons"
+
+brightness_slider = tk.Scale(sidebar, from_=100, to=0, orient="vertical", bg="black", fg="white", highlightthickness=0, troughcolor="gray")
+brightness_slider.pack(anchor="w", fill="x")
+"adjusting scale"
+
+def erase(event = None):
+    canvas.delete('all')
+"this deletes everything on the screen to a new fresh start"
+
+def neutral(event = None):
+    "event = none helps stop conflicts for actual events"
+    global lonely_timer
+    "let it know to use that variable because it uses 'none'"
+    
+    erase()
+    canvas.create_rectangle(25, 25, 125, 130, outline="white", width=3)
+    canvas.create_rectangle(235, 25, 335, 130, outline="white", width=3)
+    canvas.create_line(115, 225, 245, 225, fill="white", width=3)
+    lonely_timer = window.after(10000, lonely)
+"erases for a new fresh start, draws the face, and starts a timer"
+
+def lonely(event = None):
+    if petting == False:
+        erase()
+        left_eye_points = [45, 95, 60, 75, 105, 75, 105, 130, 45, 130]
+        canvas.create_polygon(left_eye_points, fill="black", outline="white", width=3)
+    
+        right_eye_points = [315, 95, 300, 75, 255, 75, 255, 130, 315, 130]
+        canvas.create_polygon(right_eye_points, fill="black", outline="white", width=3)
+    
+        frown_points = [95, 235, 120, 228, 150, 225, 210, 225, 240, 228, 265, 235]
+        canvas.create_line(frown_points, fill="white", width=3, smooth=True)
+"erasing, creating"
+
+def smile(event=None):
+    erase()
+    canvas.create_rectangle(25, 50, 125, 94, outline="white", width=3)
+    canvas.create_rectangle(235, 50, 335, 94, outline="white", width=3)
+    
+    for offset in range(35, 115, 14):
+        canvas.create_line(offset, 105, offset + 10, 128, fill="blue", width=2)
+        
+    for offset in range(245, 325, 14):
+        canvas.create_line(offset, 105, offset + 10, 128, fill="blue", width=2)
+    
+    canvas.create_arc(95, 195, 265, 235, start=180, extent=180, style="arc", outline="white", width=3)
+"same, creating and erasing"
+
+neutral()
+
+def click(event):
+    global petting
+    petting = True
+    if lonely_timer is not None:
+        window.after_cancel(lonely_timer)
+    smile()
+"defining the logic and what happens when you press on the screen"
+
+def release(event):
+    global petting
+    petting = False
+    neutral()
+"logic and what happens when you release the screen"
+
+canvas.bind("<Button-1>", click)
+canvas.bind("<ButtonRelease-1>", release)
+
+window.mainloop()
+"add this as its own line in no loops at the end of your code, always."
+
