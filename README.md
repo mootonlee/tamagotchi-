@@ -14,3 +14,5 @@ The tomagotchi pet is hardware, but most of the work was software, meaning i cou
 
 
 This is also a work-learn kinda project, ive been learning micropython for the past few months and i have the ropes of it but still need some help sometimes, so i do ask ai for assistance, but again i dont copy from it at all (exception of faces)
+ find the cad at "finishedcad.step" or something
+ find the finest software test version at "no!...."
