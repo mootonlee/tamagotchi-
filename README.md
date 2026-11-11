@@ -13,13 +13,14 @@ The tomagotchi pet is hardware, but most of the work was software, meaning i cou
 Added software version for people who want it too!
 
 
-REVIEWER NOTE: CHECK FULLEST AND FINEST RELEASE FOR REVIEW
-UPDATES AND UNFINISHED SOFTWARE VERSIONS ARE OUT OF FOLDERS
+REVIEWER NOTE: DONT CHECK OTHER BRANCHES IT IS IN THE MAIN BRANCH INSIDE THE FOLDERS! CRITICAL REVIEW ARE IN FOLDERS AND README ISNT
+THE UPDATES$JUNK FOLDER IS UPDATES AND ACCIDENTAL PUBLISHES
 MY CAD IS IMPOSSIBLE TO FINISH! IT CANNOT BE WIRED. I USED ONCAD WHICH IS FOR MECHANICS SO WIRING IS ALREADY LIMITED!!! ADDITIONALLY, THE BREADBOARD USES SQUARE HOLES AND THE ONLY WIRING TOOLS USE CIRCLES
+PLEASE UNDERSTAND MY ISSUE WITH THE CAD
 
 
 
 
 This is also a work-learn kinda project, ive been learning micropython for the past few months and i have the ropes of it but still need some help sometimes, so i do ask ai for assistance, but again i dont copy from it at all (exception of faces)
- find the cad at "finishedcad.step" or something
- find the finest software test version at "no!...."
+#image
+<img width="683" height="900" alt="IMG_E7178 1" src="https://github.com/user-attachments/assets/f80f6b9f-7bf2-4160-8823-03a270ac26a6" />
