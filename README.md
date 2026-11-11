@@ -22,5 +22,7 @@ PLEASE UNDERSTAND MY ISSUE WITH THE CAD
 
 
 This is also a work-learn kinda project, ive been learning micropython for the past few months and i have the ropes of it but still need some help sometimes, so i do ask ai for assistance, but again i dont copy from it at all (exception of faces)
-#image
+# Image from older time
+
 <img width="683" height="900" alt="IMG_E7178 1" src="https://github.com/user-attachments/assets/f80f6b9f-7bf2-4160-8823-03a270ac26a6" />
+
