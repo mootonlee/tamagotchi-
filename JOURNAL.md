@@ -1,14 +1,16 @@
-this is my first and likely only journal
-I wrote this journal to meet the submission requirements
-I was originally rejected from stardance even after waiting 2 months in queue because i am new to github and my repo was disorganized.
-Hopefully it is organized enough to meet the requirements
-the CAD i have wont be wired because i literally cannot wire it; onshape has limited wire compatibility and my breadboard module uses square holes, and the only community workarounds
-support circle holes instead, so please understand my problem
-If my repo still doesnt meet requirements, i dont know what to say. please just email me about it before rejecting it
-please dont deduct credits because i switched. Stardance's team was slow to respond and rejected me unfairly, im already fed up with them.
+---
+title: "Tamagotchi pet"
+author: "Martin"
+description: "Tamagotchi pet with a software version if you dont want to build the hardware one"
+created_at: "11/14/2026"
+---
+
+# Nov 24: Optimizing repo for the forge
+
+Spent just now fixing up my repo for forge || CHECK OUT THE README
+README explains the CAD issue
 
 
+<img width="1410" height="693" alt="Screenshot_20261124_160208" src="https://github.com/user-attachments/assets/31fc6cce-2042-401f-bcf8-61461d54b06c" />
 
-JOURNAL
-I am writing to mark i have optimized my repo for forge and setting up the forge project to transfer
-
+**Total time spent: 15 minutes**
